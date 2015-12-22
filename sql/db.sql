@@ -53,7 +53,6 @@ DROP TABLE IF EXISTS `stargate`.`SYSTEMES_SOLAIRE` ;
 CREATE TABLE IF NOT EXISTS `stargate`.`SYSTEMES_SOLAIRE` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `g_id` INT NOT NULL,
-  `nom` VARCHAR(45) NULL,
   `pos_x` INT NULL,
   `pos_y` INT NULL,
   PRIMARY KEY (`id`,`g_id`),
