@@ -1,9 +1,9 @@
 <?php
-  class Modeles{
+  class Modele{
       private $dsn;
 		  private $user;
 		  private $pcw;
-		  private $db;
+		  protected $db;
 
       public function __construct(){
         $this->dsn = "mysql:dbname=stargate;host=192.168.1.109";
