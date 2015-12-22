@@ -7,8 +7,6 @@ $url = isset($_GET['url']) ? $_GET['url'] : null;
 
 require_once(ROOT.DS.'config'.DS.'config.php');
 
-require_once(ROOT.DS.'lib'.DS.'genplanete.php');
-
 require_once(ROOT.DS.'lib'.DS.'autoloader.php');
 Autoloader::register();
 
