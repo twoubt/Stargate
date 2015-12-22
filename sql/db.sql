@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `stargate`.`SYSTEMES_SOLAIRE` (
   `nom` VARCHAR(45) NULL,
   `pos_x` INT NULL,
   `pos_y` INT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`,`g_id`),
   INDEX `fk_SYSTEMES_SOLAIRE_GALAXIES_idx` (`g_id` ASC),
   CONSTRAINT `fk_SYSTEMES_SOLAIRE_GALAXIES`
     FOREIGN KEY (`g_id`)
