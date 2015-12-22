@@ -42,7 +42,7 @@ class Vue{
 
   public function setIcone($filename){
     if(file_exists(WEBROOT.DS.'space'.DS.'public'.DS.'img'.DS.$filename)){
-      $this->donnees['site_icone'] = "<link rel='icon' type='image/png' href='".WEBROOT.DS.'space'.DS.'public'.DS.'img'.DS.$filename."' />";
+      $this->donnees['site_icone'] = "<link rel='icon' type='image/png' href='public".DS.'img'.DS.$filename."' />";
     }
   }
 
@@ -53,20 +53,20 @@ class Vue{
   public function setCSS($filename = 'style.css'){
     if(is_array($filename)){
       for($i = 0; $i < count($filename); $i++){
-        $this->donnees['style_css'] .= "<link rel='stylesheet' href='".WEBROOT.DS.'public'.DS.'css'.DS.$filename[$i]."'>";
+        $this->donnees['style_css'] .= "<link rel='stylesheet' href='public".DS.'css'.DS.$filename[$i]."'>";
       }
     }else{
-      $this->donnees['style_css'] .= "<link rel='stylesheet' href='".WEBROOT.DS.'public'.DS.'css'.DS.$filename."'>";
+      $this->donnees['style_css'] .= "<link rel='stylesheet' href='public".DS.'css'.DS.$filename."'>";
     }
   }
 
   public function setJS($filename){
     if(is_array($filename)){
       for($i = 0; $i < count($filename); $i++){
-        $this->donnees['script_js'] .= "<script type='text/javascript' src='".WEBROOT.DS.'public'.DS.'js'.DS.$filename[$i]."'></script>";
+        $this->donnees['script_js'] .= "<script type='text/javascript' src='public".DS.'js'.DS.$filename[$i]."'></script>";
       }
     }else{
-      $this->donnees['script_js'] .= "<script type='text/javascript' src='".WEBROOT.DS.'public'.DS.'js'.DS.$filename."'></script>";
+      $this->donnees['script_js'] .= "<script type='text/javascript' src='public".DS.'js'.DS.$filename."'></script>";
     }
   }
 
@@ -100,5 +100,5 @@ class Vue{
       return ob_get_clean();
     }
   }
-  
+
 }
