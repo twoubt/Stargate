@@ -10,7 +10,6 @@ class Technologie_Modele extends Modele{
     foreach ($res as $row) {
       $array[$res["nom"]] = new Technologie($res["id"],$res["nom"],$res["description"],$res["image"],$res["libelle"]);
     }
-
     return $array;
   }
 }
