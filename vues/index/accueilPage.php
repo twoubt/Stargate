@@ -7,38 +7,97 @@
   <div id="presentationGenerale">
     <div id="blocInfoGene">
       <div id="infos">
-        <h2>Qu'est-ce que Stargate Project ?</h2>
-        <h3>Un jeu de stratégie basé sur l'univers de ogame et de Stargate.</h3>
-        <p>C'est un jeu de stratégie qui prend place dans l'espace. Vous commencez sur une planète sans infrastructures,
+        <h2 class="text-center">Qu'est-ce que Stargate Project ?</h2>
+        <h3 class="text-center">Un jeu de stratégie basé sur l'univers de ogame et de Stargate.</h3>
+        <p class="text-center">C'est un jeu de stratégie qui prend place dans l'espace. Vous commencez sur une planète sans infrastructures,
          vous développez vos mines, créez vos vaisseaux de combat et partez conquérir d'autre planètes seul ou avec vos amis !</p>
-         <div id="choixTechno">
+         <div class="panel-group" id="choixTechno">
+
            <ul>
-             <li><h4>Humain</h4><p>Classe basique Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p></li>
+             <div class="panel-group">
+               <div class="panel panel-primary">
+                 <div class="panel-heading">
+                   <h4>Humain</h4>
+                 </div>
+                 <div class="panel-body">
+                   <p>Classe basique Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                </div>
+              </div>
+            </div>
            </ul>
-           <ul>
-             <li><h4>Humain amélioré</h4><p>Classe basique défensif</p></li>
-             <li><h4>Goa'uld</h4><p>C'est le vers qui est dans ta tête : Jaffa c'est les sous merdes (humain avec un goa'uld qui le contrôle pas)
-               Garde d'horus/chacal/serpent (ils vénèrent les goa'ulds) ils ont une armure et c'est swag
-               Goa'uld son au-dessus
-               c'est les méchants
-               neutre
-             </p></li>
-             <li><h4>Wraith</h4><p>C'est le swarm méga aggro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p></li>
-           </ul>
-           <ul>
-             <li><h4>Asgard</h4><p>2eme niveau Classe de soutien défensif Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-               Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p></li>
-             <li><h4>Réplicateur</h4><p>2eme niveau Classe qui fait des trucs cools aggressifs Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p></li>
-           </ul>
-           <ul>
-             <li><h4>Ori</h4><p>Agressif op shit Temple d'Ori Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p></li>
-             <li><h4>Anciens</h4><p>Défensif op shit Atlantis Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p></li>
-           </ul>
+             <ul>
+               <div class="panel-group">
+                 <div class="panel panel-primary">
+                   <div class="panel-heading">
+                     <h4>Humain amélioré</h4>
+                   </div>
+                   <div class="panel-body">
+                     <p>Classe basique défensif</p>
+                   </div>
+                   <div class="panel-heading">
+                     <h4>Goa'uld</h4>
+                   </div>
+                   <div class="panel-body">
+                     <p>C'est le vers qui est dans ta tête : Jaffa c'est les sous merdes (humain avec un goa'uld qui le contrôle pas)
+                       Garde d'horus/chacal/serpent (ils vénèrent les goa'ulds) ils ont une armure et c'est swag
+                       Goa'uld son au-dessus
+                       c'est les méchants
+                       neutre
+                     </p>
+                   </div>
+                   <div class="panel-heading">
+                     <h4>Wraith</h4>
+                   </div>
+                   <div class="panel-body">
+                   <p>C'est le swarm méga aggro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                      Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                  </div>
+                </div>
+              </div>
+             </ul>
+             <ul>
+               <div class="panel-group">
+                 <div class="panel panel-primary">
+                   <div class="panel-heading">
+                     <h4>Asgard</h4>
+                   </div>
+                   <div class="panel-body">
+                     <p>2eme niveau Classe de soutien défensif Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                       Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                    </div>
+                    <div class="panel-heading">
+                      <h4>Réplicateur</h4>
+                    </div>
+                    <div class="panel-body">
+                      <p>2eme niveau Classe qui fait des trucs cools aggressifs Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                        Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                    </div>
+                  </div>
+                </div>
+               </ul>
+               <ul>
+                 <div class="panel-group">
+                   <div class="panel panel-primary">
+                     <div class="panel-heading">
+                       <h4>Ori</h4>
+                     </div>
+                     <div class="panel-body">
+                 <p>Agressif op shit Temple d'Ori Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                    Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                  </div>
+                  <div class="panel-heading">
+                 <h4>Anciens</h4>
+               </div>
+               <div class="panel-body">
+                 <p>Défensif op shit Atlantis Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                    Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                  </div>
+                  </div>
+                </div>
+               </ul>
+             </div>
+            </div>
         </div>
       </div>
       <div>
@@ -50,7 +109,7 @@
               <input class="form-control" type="text" name="password" placeholder="Mot de passe">
             </div>
             <div>
-              <input type="submit" value="Connexion"/>
+              <input type="submit" class="btn btn-info" value="Connexion"/>
               <a href="/accueilPage.html">Mot de passe oublié ?</a>
             </div>
           </form>

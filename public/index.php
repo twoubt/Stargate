@@ -1,6 +1,6 @@
 <?php
 session_start();
-define('DS', DIRECTORY_SEPARATOR);
+define('DS', '/'); //define('DS', 'DIRECTORY_SEPARATOR'); sous windows il fait des \ et ça fou la merde
 define('ROOT', dirname(dirname(__FILE__)));
 
 $url = isset($_GET['url']) ? $_GET['url'] : null;
