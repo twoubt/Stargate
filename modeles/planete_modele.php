@@ -45,12 +45,12 @@ class Planete_Modele extends Modele{
     $insPlanete = "INSERT INTO PLANETES(j_id,s_id,position,nom,naquadah,neutronium,fer,trinium) VALUES(".$idJoueur.",".$systeme.",".$positionPlanete.",'nouvelle planete',1000,1000,1000,1000)";
     $this->db->query($insPlanete);
    }
-   
+
    public function renamePlanete($idPlanete,$nom){
 	   $req = "UPDATE PLANETES SET nom='".$nom."' WHERE id=".$idPlanete;
 	   $this->db->query($req);
    }
-   
+
    public function getDistance($idPlaneteA,$idPlaneteB){
 	   //Formule : AB = racine( (xB-xA)² + (yB -yA)² )
    }
