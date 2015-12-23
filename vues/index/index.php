@@ -11,5 +11,7 @@
 
   <body>
     <?= $donnees['script_js'] ?>
+    <?php echo "Il serait peut être temps d'afficher quelque chose non ?";
+    ?>
   </body>
 </html>
