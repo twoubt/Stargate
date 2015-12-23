@@ -164,5 +164,6 @@
   </div>
   <div id="inscription">
     <h2><a>Inscription<a></h2>
+      <p>Test</p>
   </div>
 </main>
