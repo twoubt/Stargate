@@ -51,6 +51,11 @@ class Planete_Modele extends Modele{
 	   $this->db->query($req);
    }
 
+   public function conquerirPlanete($idJoueur,$idSysteme,$position){
+     $req = "INSERT INTO PLANETES(j_id,s_id,position,nom,naquadah,neutronium,fer,trinium) VALUES(".$idJoueur.",".$idSysteme.",".$position.",'nouvelle planete',1000,1000,1000,1000)";
+     $this->db->query($req);
+   }
+
    public function getDistance($idPlaneteA,$idPlaneteB){
 	   //Formule : AB = racine( (xB-xA)² + (yB -yA)² )
    }
