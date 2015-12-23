@@ -10,9 +10,6 @@
   </head>
 
   <body>
-    <?= $donnees['header'] ?>
-    <?= $donnees['menu'] ?>
-    <?= $donnees['footer'] ?>
     <?= $donnees['script_js'] ?>
   </body>
 </html>
