@@ -10,8 +10,9 @@
   </head>
 
   <body>
+    <?= $donnees['header'] ?>
+    <?= $donnees['menu'] ?>
+    <?= $donnees['footer'] ?>
     <?= $donnees['script_js'] ?>
-    <?php echo "Il serait peut être temps d'afficher quelque chose non ?";
-    ?>
   </body>
 </html>

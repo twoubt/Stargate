@@ -23,6 +23,15 @@ class Index_Controlleur extends Controlleur{
 		$footer = new Vue();
 		$this->vue->assign('footer', $footer->render('index'.DS.'footer', false));*/
 
+    $header = new Vue();
+    $this->vue->assign('header', $header->render('index'.DS.'header', false));
+
+    $menu = new Vue();
+    $this->vue->assign('menu', $header->render('index'.DS.'accueilPage', false));
+
+    $footer = new Vue();
+    $this->vue->assign('footer', $footer->render('index'.DS.'footer', false));
+
 		$this->vue->render('index'.DS.'index');
 	}
 }
