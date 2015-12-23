@@ -15,12 +15,35 @@ class Technologie_Modele extends Modele{
     return $technologies;
   }
 
+  public function loadOneTechnologie($idJoueur,$idTech){
+    $req = "SELECT T.id,nom,description,image,libelle,niveau FROM TECHNOLOGIE T, POSSEDER P, TYPE_TECHNOLOGIE E WHERE T.id = P.t_id AND T.t_id = E.id AND j_id=".$idJoueur." AND T.id=".$idTech;
+    $res = $this->db->query($req);
+    foreach ($res as $row) {
+      $technologie = new Technologie($row["id"],$row["nom"],$row["description"],$row["image"],$row["libelle"],$row["niveau"]);
+    }
+    return $technologie;
+  }
+
   //Initialise toutes les technologie lors de la 1ere connexion ou inscription
   public function initialisationTechnologies($idJoueur){
     for($i=1;$i<42;$i++){
       $req = "INSERT INTO POSSEDER(j_id,t_id,niveau) VALUES(".$idJoueur.",".$i.",0)";
       $this->db->query($req);
     }
+  }
+
+  //$tech est soit l'objet de la technologie soit l'id de la technologie à rechercher
+  public function rechercheTechnologie($idJoueur,$tech){
+    if(!is_object($tech)){
+      $tech = $this->loadOneTechnologie($idJoueur,$tech);
+    }
+    $temps = $tech->getTempsRecherche();
+    $fin = new DateTime();
+    $fin->add(new DateInterval('P'.$temps.'I'));
+
+    $req = "INSERT INTO RECHERCHER(j_id,t_id,datefin) VALUES(".$idJoueur.",".$tech->getId().",'".$fin->format("Y-m-d H:i:s")."')";
+    // Datetime mysql = "Y-m-d H:i:s"
+    $this->db->query($req);
   }
 
   //Augmente la tech d'un niveau et le supprime de la file de recherche
