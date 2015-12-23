@@ -83,16 +83,16 @@
                        <h4>Ori</h4>
                      </div>
                      <div class="panel-body">
-                 <p>Agressif op shit Temple d'Ori Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                    Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                  </div>
-                  <div class="panel-heading">
-                 <h4>Anciens</h4>
-               </div>
-               <div class="panel-body">
-                 <p>Défensif op shit Atlantis Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                    Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                  </div>
+                       <p>Agressif op shit Temple d'Ori Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                         Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                     </div>
+                     <div class="panel-heading">
+                       <h4>Anciens</h4>
+                     </div>
+                     <div class="panel-body">
+                       <p>Défensif op shit Atlantis Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                         Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                     </div>
                   </div>
                 </div>
                </ul>
@@ -103,56 +103,60 @@
       <div>
         <div id="connection">
           <h2>Se connecter</h2>
-          <form>
-            <div>
+          <form class="form-horizontale" role="form">
+            <div class="form-group">
               <input class="form-control" type="text" name="username" placeholder="Pseudo/Email">
+            </div>
+            <div class="form-group">
               <input class="form-control" type="text" name="password" placeholder="Mot de passe">
             </div>
-            <div>
-              <input type="submit" class="btn btn-info" value="Connexion"/>
-              <a href="/accueilPage.html">Mot de passe oublié ?</a>
+            <div class="checkbox">
+              <label><input type="checkbox"> Remember me</label>
             </div>
+            <button type="submit" class="btn btn-default" >Connexion</button>
+            <a href="/accueilPage.html">Mot de passe oublié ?</a>
+
           </form>
         </div>
       </div>
     </div>
   </div>
   <div id="presentation">
-    <h2>Découvrez toutes les fonctionnalités de ce jeu innovant ;)</h2>
+    <h2 class="text-center">Découvrez toutes les fonctionnalités de ce jeu innovant ;)</h2>
     <div class="presentationElement">
-      <div class="element">
-        <img src="">
-        <div>
-          <h3>Développez votre planète</h3>
-          <ul>
-            <li><p>Améliorez vos mines pour produire plus de ressources.</p></li>
-            <li><p>Construisez des usines et des laboratoires pour améliorer votre technologie.</p></li>
-            <li><p>Construisez des vaisseaux pour renforcer votre armada.</p></li>
-            <li><p>Envoyez vos vaisseaux piller des ressources au quatre coins de la galaxie.</p></li>
-            <li><p>Partez à la conquète de planètes riches en matières première.</p></li>
+      <div class="container">
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#infoPlanete">Développez votre planète</button>
+        <div id="infoPlanete" class="collapse">
+          <img src="" class="img-rounded" alt="une planète">
+          <ul class="list-group">
+            <li class="list-group-item"><p>Améliorez vos mines pour produire plus de ressources.</p></li>
+            <li class="list-group-item"><p>Construisez des usines et des laboratoires pour améliorer votre technologie.</p></li>
+            <li class="list-group-item"><p>Construisez des vaisseaux pour renforcer votre armada.</p></li>
+            <li class="list-group-item"><p>Envoyez vos vaisseaux piller des ressources au quatre coins de la galaxie.</p></li>
+            <li class="list-group-item"><p>Partez à la conquète de planètes riches en matières première.</p></li>
           </ul>
         </div>
       </div>
-      <div class="element">
-        <img src="">
-        <div>
-          <h3>Créez votre vaisseau personnalisé</h3>
-          <ul>
-            <li><p>Envoyez votre vaisseau mère dans des aventures pour obtenir toutes sortes de butins.</p></li>
-            <li><p>À chaque niveau améliorez ses caractéristiques pour qu'il devienne encore plus puissant.</p></li>
-            <li><p>Attaquez d'autre joueur avec votre vaisseau mère pour décupler la puissance de votre flotte.</p></li>
+      <div class="container">
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#infoVaisseau">Créez votre vaisseau personnalisé</button>
+        <div id="infoVaisseau" class="collapse">
+          <img src="" class="img-rounded" alt="Un vaisseau trop swag">
+          <ul class="list-group">
+            <li class="list-group-item"><p>Envoyez votre vaisseau mère dans des aventures pour obtenir toutes sortes de butins.</p></li>
+            <li class="list-group-item"><p>À chaque niveau améliorez ses caractéristiques pour qu'il devienne encore plus puissant.</p></li>
+            <li class="list-group-item"><p>Attaquez d'autre joueur avec votre vaisseau mère pour décupler la puissance de votre flotte.</p></li>
           </ul>
         </div>
       </div>
-      <div class="element">
-        <img src="">
-        <div>
-          <h3>L'objectif qu'est-ce que c'est ?</h3>
-          <ul>
-            <li><p>Te te développe à mort.</p></li>
-            <li><p>Tu te fait une big armée.</p></li>
-            <li><p>Tu casse la bouche à tout le monde.</p></li>
-            <li><p>Et enfin tu construit le méga batiment avec la technologie ultra pété que t'as choisit.</p></li>
+      <div class="container">
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#infoObjectif">L'objectif qu'est-ce que c'est ?</button>        <div>
+        <div id="infoObjectif" class="collapse">
+          <img src="" class="img-rounded" alt="?">
+          <ul class="list-group">
+            <li class="list-group-item"><p>Te te développe à mort.</p></li>
+            <li class="list-group-item"><p>Tu te fait une big armée.</p></li>
+            <li class="list-group-item"><p>Tu casse la bouche à tout le monde.</p></li>
+            <li class="list-group-item"><p>Et enfin tu construit le méga batiment avec la technologie ultra pété que t'as choisit.</p></li>
           </ul>
         </div>
       </div>
