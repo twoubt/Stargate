@@ -10,6 +10,7 @@ class Planete{
   private $neutronium;
   private $fer;
   private $trinium;
+  private $lesBatiments = array();
 
   function __construct($unId,$unePosition,$unNom,$duNaquadah,$duNeutronium,$duFer,$duTrinium){
     $this->id = $unId;
@@ -61,4 +62,19 @@ class Planete{
     return $this->position;
   }
 
+  public function getBatiments(){
+    return $this->lesBatiments;
+  }
+
+  public function setBatiments($desBatiments){
+    if(is_array($desBatiments)){
+      $this->lesBatiments = $desBatiments;
+    }else{
+      if(is_object($desBatiments)){
+        array_push($this->lesBatiments, $desBatiments);
+      }else{
+        return "Veuillez ajouter un/des objets ou un tableau en entré";
+      }
+    }
+  }
 }
