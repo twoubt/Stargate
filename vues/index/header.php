@@ -30,7 +30,7 @@
                   <div class="form-group">
                     <label><input type="checkbox"> Se souvenir de moi</label>
                   </div>
-                  <button type="button" id="btnLogin" class="btn">Login</button>
+                  <button type="button" id="btnLogin" class="btn">Connexion</button>
                 </form>
               </div>
             </li>

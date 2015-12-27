@@ -63,9 +63,30 @@
     </div>
     </div>
   </div>
-  <div id="inscription">
-    <h2><a>Inscription<a></h2>
-      <p>Test</p>
+  <div><!-- div inscription -->
+    <div>
+      <a href="#inscription" data-toggle="collapse">Inscription<a>
+    </div>
+    <div id="inscription">
+
+      <form class="navbar-form" id="formLogin" method="post">
+        <div class="form-group">
+          <input class="form-control" name="username" id="username" placeholder="Identifiant" type="text">
+        </div>
+        <div class="form-group">
+          <input class="form-control" name="password" id="password" placeholder="Mot de passe" type="password">
+        </div>
+        <div class="form-group">
+          <input class="form-control" name="email" id="email" placeholder="e-mail" type="text">
+        </div>
+        <select>
+          <?php for($i = 0; $i < $galaxies.count(); $i++) {
+            echo "<option value='".($i+1)."'>".$galaxies[$i]."</option>";
+          } ?>
+        </select>
+        <button type="button" id="btnLogin" class="btn">Inscription</button>
+      </form>
+    </div>
   </div>
 </div>
 </div>
