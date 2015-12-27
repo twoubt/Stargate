@@ -182,8 +182,11 @@ class Planete_Modele extends Modele{
        }
      }
      for($i=0;$i<count($niveauFer);$i++){
-       $ressources = 0;
-       $reqMAJRessource = "UPDATE PLANETES SET `naquadah`=`naquadah`,`neutronium`=`neutronium`, `fer`=`fer`, `trinium`=`trinium` WHERE id=".$idPlanetes[$i];
+       $ressourcesNaquadah = $niveauNaquadah[$i]; //calcul des ressources en plus
+       $ressourcesNeutronium = $niveauNeutronium[$i];
+       $ressourcesFer = $niveauFer[$i];
+       $ressourcesTrinium = $niveauTrinium[$i];
+       $reqMAJRessource = "UPDATE PLANETES SET `naquadah`=`naquadah`+".$ressourcesNaquadah.",`neutronium`=`neutronium`+".$ressourcesNeutronium.", `fer`=`fer`+".$ressourcesFer.", `trinium`=`trinium`+".$ressourcesTrinium." WHERE id=".$idPlanetes[$i];
      }
    }
 }

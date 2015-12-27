@@ -39,6 +39,24 @@ class Joueur_Modele extends Modele{
 
     }
 
+    //Va gerer les joueurs connéctés
+    public function estConnecte(){
+      $req = "SELECT * FROM CONNECTER";
+      $res = $this->db->query($res);
+    }
+
+    public function seConnecter($idJoueur){
+      $now = new DateTime()->format('Y-m-d H:i:s');
+      $req = "INSERT INTO CONNECTER VALUES(".$idJoueur.",'".$now."')";
+      $res = $this->db->query($req);
+    }
+
+    public function connexionAJour($idJoueur){
+      $now = new DateTime()->format('Y-m-d H:i:s');
+      $req = "UPDATE CONNECTER SET `dateconnexion`='".$now."' WHERE j_id=".$idJoueur;
+      $res = $this->db->query($req);
+    }
+
     public function testConnexion($login,$motdepasse){
         $req = "SELECT password FROM JOUEUR WHERE login='".$login."'";
         $res = $this->db->query($req);

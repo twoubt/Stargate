@@ -4,7 +4,7 @@
 		  private $user;
 		  private $pcw;
 		  protected $db;
-
+      
       public function __construct(){
         $this->dsn = "mysql:dbname=stargate;host=localhost";
         $this->user = "root";
