@@ -39,22 +39,41 @@ class Joueur_Modele extends Modele{
 
     }
 
+    //Le nombre de joueurs connecté
+    public function nbConnecte(){
+      $req = "SELECT COUNT(*) as nbr FROM CONNECTER";
+      $res = $this->db->query($res, PDO::FETCH_ASSO);
+      return $res["nbr"];
+    }
+
     //Va gerer les joueurs connéctés
     public function estConnecte(){
       $req = "SELECT * FROM CONNECTER";
       $res = $this->db->query($res);
-    }
-
-    public function seConnecter($idJoueur){
-      $now = new DateTime()->format('Y-m-d H:i:s');
-      $req = "INSERT INTO CONNECTER VALUES(".$idJoueur.",'".$now."')";
-      $res = $this->db->query($req);
+      $lc = new DateTime()->sub(new DateInterval('P5I'));
+      foreach($res as $row){
+        $dc = new DateTime($row["dateconnexion"]);
+        if($dc < $lc){
+          $reqDel = "DELETE FROM CONNECTER WHERE j_id=".$row['j_id'];
+          $this->db->query($reqDel);
+          $reqUpd = "UPDATE JOUEUR SET lastconnexion='".$row['dateconnexion']."' WHERE id=".$row['j_id'];
+          $this->db->query($reqUpd);
+        }
+      }
     }
 
     public function connexionAJour($idJoueur){
-      $now = new DateTime()->format('Y-m-d H:i:s');
-      $req = "UPDATE CONNECTER SET `dateconnexion`='".$now."' WHERE j_id=".$idJoueur;
-      $res = $this->db->query($req);
+      $reqNbrCo = "SELECT COUNT(*) AS nbr FROM CONNECTER WHERE j_id=".$idJoueur;
+      $res = $this->db->query($reqNbrCo, PDO::FETCH_ASSOC);
+      if($res['nbr'] == 0){
+        $now = new DateTime()->format('Y-m-d H:i:s');
+        $req = "INSERT INTO CONNECTER VALUES (".$idJoueur.",'".$now."')";
+        $res = $this->db->query($req);
+      }else{
+        $now = new DateTime()->format('Y-m-d H:i:s');
+        $req = "UPDATE CONNECTER SET `dateconnexion`='".$now."' WHERE j_id=".$idJoueur;
+        $res = $this->db->query($req);
+      }
     }
 
     public function testConnexion($login,$motdepasse){
