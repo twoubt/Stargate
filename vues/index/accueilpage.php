@@ -87,7 +87,7 @@
             echo "<option value='".($i+1)."'>".$donnees['galaxies'][$i]."</option>";
           } ?>
         </select>
-        <button type="button" id="btnLogin" class="btn">Inscription2</button>
+        <button type="button" id="btnLogin" class="btn">Inscription</button>
       </form>
     </div>
   </div>
