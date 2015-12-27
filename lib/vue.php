@@ -82,7 +82,7 @@ class Vue{
     if(file_exists($fichier)){
       $this->vue = $fichier;
     }else{
-      return "La vue n'existe pas";
+      return "La vue ".$fichier." n'existe pas";
     }
 
 
