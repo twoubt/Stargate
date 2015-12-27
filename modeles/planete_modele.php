@@ -91,9 +91,8 @@ class Planete_Modele extends Modele{
     */
    public function loadPlanete($idPlanete){
      $req = "SELECT * FROM PLANETES WHERE id=".$idPlanete;
-     $res = $this->db->query($req);
-     foreach($res as $row){
-       return new Planete($idPlanete,$row["position"],$row["nom"],$row["naquadah"],$row["neutronium"],$row["fer"],$row["trinium"]);
+     $res = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC);
+       return new Planete($idPlanete,$res[0]["position"],$res[0]["nom"],$res[0]["naquadah"],$res[0]["neutronium"],$res[0]["fer"],$res[0]["trinium"]);
      }
    }
 
@@ -105,24 +104,20 @@ class Planete_Modele extends Modele{
     */
    public function getDistanceBtw($idPlaneteA,$idPlaneteB){
      $req = "SELECT G.id,pos_x,pos_y,position FROM GALAXIES G, SYSTEMES_SOLAIRE S, PLANETES P WHERE P.s_id = S.id AND S.g_id = G.id AND P.id=".$idPlaneteA;
-	   $res = $this->db->query($req);
+	   $res = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC);
      //On récupère les infos de la planète A
-     foreach ($res as $row){
-       $gA = $row["id"];
-       $ssxA = $row["pos_x"];
-       $ssyA = $row["pos_y"];
-       $posA = $row["position"];
-     }
+     $gA = $res[0]["id"];
+     $ssxA = $res[0]["pos_x"];
+     $ssyA = $res[0]["pos_y"];
+     $posA = $res[0]["position"];
 
      $req = "SELECT G.id,pos_x,pos_y,position FROM GALAXIES G, SYSTEMES_SOLAIRE S, PLANETES P WHERE P.s_id = S.id AND S.g_id = G.id AND P.id=".$idPlaneteB;
-	   $res = $this->db->query($req);
+	   $res = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC);
      //On récupères les infos de la planète B
-     foreach ($res as $row){
-       $gB = $row["id"];
-       $ssxB = $row["pos_x"];
-       $ssyB = $row["pos_y"];
-       $posB = $row["position"];
-     }
+     $gB = $res[0]["id"];
+     $ssxB = $res[0]["pos_x"];
+     $ssyB = $res[0]["pos_y"];
+     $posB = $res[0]["position"];
 
      $distance = 0;
      //On commence par savoir si les deux planètes sont dans le même système solaire
@@ -148,11 +143,9 @@ class Planete_Modele extends Modele{
      $niveauNeutronium = array();
      $idPlanetes = array();
      $req = "SELECT lastconnexion FROM JOUEUR WHERE id=".$idJoueur;
-     $res = $this->db->query($req);
+     $res = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC);
      $now = new DateTime();
-     foreach($res as $row) {
-       $lastconnexion = new DateTime($row["lastconnexion"]);
-     }
+     $lastconnexion = new DateTime($res[0]["lastconnexion"]);
      $connexion = $now->diff($lastconnexion);
      $connexion = $connexion->format('%h'); //Nombre d'heure entre les deux connexion
      $reqIdPlanete = "SELECT id FROM PLANETES WHERE j_id=".$idJoueur;

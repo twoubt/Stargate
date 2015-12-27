@@ -20,10 +20,8 @@ class Technologie_Modele extends Modele{
 
   public function loadOneTechnologie($idJoueur,$idTech){
     $req = "SELECT T.id,nom,description,image,libelle,niveau FROM TECHNOLOGIE T, POSSEDER P, TYPE_TECHNOLOGIE E WHERE T.id = P.t_id AND T.t_id = E.id AND j_id=".$idJoueur." AND T.id=".$idTech;
-    $res = $this->db->query($req);
-    foreach ($res as $row) {
-      $technologie = new Technologie($row["id"],$row["nom"],$row["description"],$row["image"],$row["libelle"],$row["niveau"]);
-    }
+    $res = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC);
+    $technologie = new Technologie($res[0]["id"],$res[0]["nom"],$res[0]["description"],$res[0]["image"],$res[0]["libelle"],$res[0]["niveau"]);
     return $technologie;
   }
 
