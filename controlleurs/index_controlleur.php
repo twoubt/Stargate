@@ -27,7 +27,8 @@ class Index_Controlleur extends Controlleur{
     $this->vue->assign('header', $header->render('index'.DS.'header', false));
 
     $menu = new Vue();
-    $this->vue->assign('menu', $header->render('index'.DS.'accueilPage', false));
+    $menu->assign('galaxies', new Batiment_Modele()->getGalaxies(), false);
+    $this->vue->assign('menu', $menu->render('index'.DS.'accueilPage', false));
 
     $footer = new Vue();
     $this->vue->assign('footer', $footer->render('index'.DS.'footer', false));
