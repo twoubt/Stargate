@@ -6,9 +6,9 @@
 		  protected $db;
 
       public function __construct(){
-        $this->dsn = "mysql:dbname=stargate;host=192.168.1.109";
+        $this->dsn = "mysql:dbname=stargate;host=localhost";
         $this->user = "root";
-        $this->pcw = "raspberry";
+        $this->pcw = "";
         $this->db = new PDO($this->dsn, $this->user, $this->pcw, array( PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
       }
 

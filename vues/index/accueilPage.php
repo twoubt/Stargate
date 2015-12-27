@@ -80,8 +80,8 @@
           <input class="form-control" name="email" id="email" placeholder="e-mail" type="text">
         </div>
         <select>
-          <?php for($i = 0; $i < $galaxies.count(); $i++) {
-            echo "<option value='".($i+1)."'>".$galaxies[$i]."</option>";
+          <?php for($i = 0; $i < count($donnees['galaxies']); $i++) {
+            echo "<option value='".($i+1)."'>".$donnees['galaxies'][$i]."</option>";
           } ?>
         </select>
         <button type="button" id="btnLogin" class="btn">Inscription</button>
