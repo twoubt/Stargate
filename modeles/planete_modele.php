@@ -182,6 +182,7 @@ class Planete_Modele extends Modele{
        }
      }
      for($i=0;$i<count($niveauFer);$i++){
+       $ressources = 0;
        $reqMAJRessource = "UPDATE PLANETES SET `naquadah`=`naquadah`,`neutronium`=`neutronium`, `fer`=`fer`, `trinium`=`trinium` WHERE id=".$idPlanetes[$i];
      }
    }
