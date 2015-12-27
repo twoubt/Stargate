@@ -1,9 +1,11 @@
 
 <div class="site-content">
   <div class="container">
-  <div id="accueil1">
+    <div id="accueil1"><!-- Menu qui affiche des images du jeu (pas encore faisable) -->
+    </div>
   </div>
-  <div id="presentationGenerale">
+  <div class="container">
+  <div id="presentationGenerale"><!-- Info principale du jeu -->
     <div id="infos">
       <h2 class="text-center">Qu'est-ce que Stargate Project ?</h2>
       <h3 class="text-center">Un jeu de stratégie basé sur l'univers de ogame et de Stargate.</h3>
@@ -11,7 +13,9 @@
        vous développez vos mines, créez vos vaisseaux de combat et partez conquérir d'autre planètes seul ou avec vos amis !</p>
     </div>
   </div>
-  <div id="presentation">
+  </div>
+  <div class="container">
+  <div id="presentation"><!-- Info essentielles du jeu à compléter -->
     <h2 class="text-center">Découvrez toutes les fonctionnalités de ce jeu innovant ;)</h2>
     <div class="presentationElement">
       <div class="container">
@@ -63,7 +67,7 @@
     </div>
     </div>
   </div>
-  <div><!-- div inscription -->
+  <div class="container"><!-- div inscription -->
     <div>
       <a href="#inscription" data-toggle="collapse">Inscription<a>
     </div>
@@ -88,5 +92,4 @@
       </form>
     </div>
   </div>
-</div>
 </div>
