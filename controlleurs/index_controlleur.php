@@ -28,7 +28,7 @@ class Index_Controlleur extends Controlleur{
 
     $menu = new Vue();
 
-    $menu->assign('galaxies', new Batiment_Modele()->getGalaxies(), false);
+    $menu->assign('galaxies', new Galaxie_Modele()->getGalaxies(), false);
 
     $this->vue->assign('menu', $menu->render('index'.DS.'accueilPage', false));
 
