@@ -13,7 +13,7 @@ class Index_Controlleur extends Controlleur{
 		$this->vue->setCharSet();
 		$this->vue->setTitle(' ');
 		$this->vue->setDescription(' ');
-    $css = array('bootstrap.css');
+    $css = array('bootstrap.css','accueilStyle.css');
 		$this->vue->setCSS($css);
 		$this->vue->setBootstrap();
 

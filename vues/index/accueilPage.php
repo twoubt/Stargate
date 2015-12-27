@@ -1,7 +1,6 @@
 
 <div class="site-content">
   <div class="container">
-<main>
   <div id="accueil1">
   </div>
   <div id="presentationGenerale">
@@ -11,113 +10,6 @@
         <h3 class="text-center">Un jeu de stratégie basé sur l'univers de ogame et de Stargate.</h3>
         <p class="text-center">C'est un jeu de stratégie qui prend place dans l'espace. Vous commencez sur une planète sans infrastructures,
          vous développez vos mines, créez vos vaisseaux de combat et partez conquérir d'autre planètes seul ou avec vos amis !</p>
-         <div class="panel-group" id="choixTechno">
-
-           <ul>
-             <div class="panel-group">
-               <div class="panel panel-primary">
-                 <div class="panel-heading">
-                   <h4>Humain</h4>
-                 </div>
-                 <div class="panel-body">
-                   <p>Classe basique Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                </div>
-              </div>
-            </div>
-           </ul>
-             <ul>
-               <div class="panel-group">
-                 <div class="panel panel-primary">
-                   <div class="panel-heading">
-                     <h4>Humain amélioré</h4>
-                   </div>
-                   <div class="panel-body">
-                     <p>Classe basique défensif</p>
-                   </div>
-                   <div class="panel-heading">
-                     <h4>Goa'uld</h4>
-                   </div>
-                   <div class="panel-body">
-                     <p>C'est le vers qui est dans ta tête : Jaffa c'est les sous merdes (humain avec un goa'uld qui le contrôle pas)
-                       Garde d'horus/chacal/serpent (ils vénèrent les goa'ulds) ils ont une armure et c'est swag
-                       Goa'uld son au-dessus
-                       c'est les méchants
-                       neutre
-                     </p>
-                   </div>
-                   <div class="panel-heading">
-                     <h4>Wraith</h4>
-                   </div>
-                   <div class="panel-body">
-                   <p>C'est le swarm méga aggro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                      Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                  </div>
-                </div>
-              </div>
-             </ul>
-             <ul>
-               <div class="panel-group">
-                 <div class="panel panel-primary">
-                   <div class="panel-heading">
-                     <h4>Asgard</h4>
-                   </div>
-                   <div class="panel-body">
-                     <p>2eme niveau Classe de soutien défensif Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                       Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                    </div>
-                    <div class="panel-heading">
-                      <h4>Réplicateur</h4>
-                    </div>
-                    <div class="panel-body">
-                      <p>2eme niveau Classe qui fait des trucs cools aggressifs Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                        Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                    </div>
-                  </div>
-                </div>
-               </ul>
-               <ul>
-                 <div class="panel-group">
-                   <div class="panel panel-primary">
-                     <div class="panel-heading">
-                       <h4>Ori</h4>
-                     </div>
-                     <div class="panel-body">
-                       <p>Agressif op shit Temple d'Ori Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                         Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                     </div>
-                     <div class="panel-heading">
-                       <h4>Anciens</h4>
-                     </div>
-                     <div class="panel-body">
-                       <p>Défensif op shit Atlantis Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                         Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                     </div>
-                  </div>
-                </div>
-               </ul>
-             </div>
-            </div>
-        </div>
-      </div>
-      <div>
-        <div id="connection">
-          <h2>Se connecter</h2>
-          <form class="form-horizontale" role="form">
-            <div class="form-group">
-              <input class="form-control" type="text" name="username" placeholder="Pseudo/Email">
-            </div>
-            <div class="form-group">
-              <input class="form-control" type="text" name="password" placeholder="Mot de passe">
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox"> Remember me</label>
-            </div>
-            <button type="submit" class="btn btn-default" >Connexion</button>
-            <a href="/accueilPage.html">Mot de passe oublié ?</a>
-
-          </form>
-        </div>
       </div>
     </div>
   </div>
@@ -166,4 +58,4 @@
     <h2><a>Inscription<a></h2>
       <p>Test</p>
   </div>
-</main>
+</div>
