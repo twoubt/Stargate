@@ -140,4 +140,49 @@ class Planete_Modele extends Modele{
      return $distance;
      //Formule : AB = racine( (xB-xA)² + (yB -yA)² )
    }
+
+   public function calculRessourcesPlanetes($idJoueur){
+     $niveauFer = array();
+     $niveauTrinium = array();
+     $niveauNaquadah = array();
+     $niveauNeutronium = array();
+     $idPlanetes = array();
+     $req = "SELECT lastconnexion FROM JOUEUR WHERE id=".$idJoueur;
+     $res = $this->db->query($req);
+     $now = new DateTime();
+     foreach($res as $row) {
+       $lastconnexion = new DateTime($row["lastconnexion"]);
+     }
+     $connexion = $now->diff($lastconnexion);
+     $connexion = $connexion->format('%h'); //Nombre d'heure entre les deux connexion
+     $reqIdPlanete = "SELECT id FROM PLANETES WHERE j_id=".$idJoueur;
+     $resIdPlanete = $this->db->query($reqIdPlanete);
+     foreach($resIdPlanete as $row){
+       $reqFer = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=1";
+       $reqTrinium = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=2";
+       $reqNaquadah = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=3";
+       $reqNeutronium = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=4";
+       /*$reqForFer = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=12";
+       $reqForTri = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=13";
+       $reqForExpl = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=14";
+       $reqForNeu = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=15";*/
+       array_push($idPlanetes,$row["id"]);
+
+       foreach($this->db->query($reqFer) as $row){
+         array_push($niveauFer,$row["niveau"]);
+       }
+       foreach($this->db->query($reqTrinium) as $row){
+         array_push($niveauTrinium,$row["niveau"]);
+       }
+       foreach($this->db->query($reqNaquadah) as $row){
+         array_push($niveauNaquadah,$row["niveau"]);
+       }
+       foreach($this->db->query($reqNeutronium) as $row){
+         array_push($niveauNeutronium,$row["niveau"]);
+       }
+     }
+     for($i=0;$i<count($niveauFer);$i++){
+       $reqMAJRessource = "UPDATE PLANETES SET `naquadah`=`naquadah`,`neutronium`=`neutronium`, `fer`=`fer`, `trinium`=`trinium` WHERE id=".$idPlanetes[$i];
+     }
+   }
 }

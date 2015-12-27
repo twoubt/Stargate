@@ -81,7 +81,7 @@ class Joueur{
   public function getTechnologies(){
     return $this->lesTechnologies;
   }
-
+  
   public function setTechnologies($desTechnologies){
     if(is_array($desTechnologies)){
       $this->lesTechnologies = $desTechnologies;
