@@ -1,6 +1,20 @@
 <?php
 /**
- *
+ * Joueur
+ * Objet qui correspond au joueur
+ * @version 27/12/15 16:39
+ * @method construct
+ * @method getId
+ * @method setId
+ * @method getLogin
+ * @method setLogin
+ * @method getLastConnexion
+ * @method setLastConnexion
+ * @method getPlanetes
+ * @method setPlanetes
+ * @method addPlanete
+ * @method getTechnologies
+ * @method setTechnologies
  */
 class Joueur{
 

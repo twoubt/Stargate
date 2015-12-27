@@ -8,7 +8,7 @@
  * @method renamePlanete
  * @method conquerirPlanete
  * @method loadPlanete
- * @method getDiatanceBtw
+ * @method getDistanceBtw
  */
 class Planete_Modele extends Modele{
   public function __construct() {parent::__construct();}
