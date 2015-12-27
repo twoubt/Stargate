@@ -24,7 +24,7 @@
             <div class="panel-heading">
               <a data-toggle="collapse" href="#infoPlanete" data-parent="#menuPresentation">Développez votre planète</a>
             </div>
-            <div id="infoPlanete" class="panel-body panel-collapse collapse">
+            <div id="infoPlanete" class="panel-collapse collapse">
               <img src="" class="img-rounded" alt="une planète">
               <ul class="list-group">
                 <li class="list-group-item"><p>Améliorez vos mines pour produire plus de ressources.</p></li>
@@ -39,7 +39,7 @@
             <div class="panel-heading">
               <a data-toggle="collapse" href="#infoVaisseau" data-parent="#menuPresentation">Créez votre vaisseau personnalisé</a>
             </div>
-            <div id="infoVaisseau" class="panel-body panel-collapse collapse">
+            <div id="infoVaisseau" class="panel-collapse collapse">
               <img src="" class="img-rounded" alt="Un vaisseau trop swag">
               <ul class="list-group">
                 <li class="list-group-item"><p>Envoyez votre vaisseau mère dans des aventures pour obtenir toutes sortes de butins.</p></li>
@@ -52,7 +52,7 @@
             <div class="panel-heading">
               <a data-toggle="collapse" href="#infoObjectif" data-parent="#menuPresentation">L'objectif qu'est-ce que c'est ?</a>
             </div>
-            <div id="infoObjectif" class="panel-body panel-collapse collapse">
+            <div id="infoObjectif" class="panel-collapse collapse">
 
               <ul class="list-group">
                 <li class="list-group-item"><p>Te te développe à mort.</p></li>
