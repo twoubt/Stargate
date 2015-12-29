@@ -22,11 +22,11 @@ class Planete_Modele extends Modele{
     $trouver = false; //Va nous permettre de savoir qu'on a trouver une planete
     while(!$trouver){
       $systeme = rand(0,400); //On va tester de manière aléatoire les id des systèmes
-      $reqSysteme = "SELECT COUNT(*) AS nbr FROM SYSTEMES_SOLAIRE WHERE id=".$systeme;
-      $resSysteme = $this->db->query($reqSysteme);
-      $nbr = $resSysteme->fetch()['nbr'];
+      $reqSysteme = "SELECT MOD(id,400) AS id FROM SYSTEMES_SOLAIRE WHERE g_id=".$idGalaxie." AND id=".$systeme;
+      $resSysteme = $this->db->query($reqSysteme)->fetchAll(PDO::FETCH_ASSOC);
+      $nbr = $resSysteme[0]['id'];
       //Si le système solaire n'existe pas on le créer et on insere la planete.
-      if($nbr == "0"){
+      if(empty($nbr)){
         /*   0 1 2 3 4 5 6 7 8 9 10 11 20 ssx
         0   | | | | | | | | | | |  |  |  |
         1   | | | | | | | | | | |  |  |  |
