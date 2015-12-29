@@ -38,7 +38,7 @@ class Planete_Modele extends Modele{
         */
         $ssy = round($systeme/20, 0, PHP_ROUND_HALF_DOWN);
         $ssx = $systeme%20;
-        $insSysteme = "INSERT INTO SYSTEMES_SOLAIRE(id,g_id,pos_x,pos_y) VALUES(".$systeme.",".$idGalaxie.",".$ssx.",".$ssy.")";
+        $insSysteme = "INSERT INTO SYSTEMES_SOLAIRE(g_id,pos_x,pos_y) VALUES(".$idGalaxie.",".$ssx.",".$ssy.")";
         $this->db->query($insSysteme);
         $positionPlanete = rand(1,12);
         $trouver = true;
