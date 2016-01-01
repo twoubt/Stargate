@@ -21,46 +21,39 @@ class Planete_Modele extends Modele{
   public function createPlanete($idJoueur=1, $idGalaxie=1){
     $trouver = false; //Va nous permettre de savoir qu'on a trouver une planete
     while(!$trouver){
-      $systeme = rand(0,400); //On va tester de manière aléatoire les id des systèmes
-      $reqSysteme = "SELECT MOD(id,400) AS id FROM SYSTEMES_SOLAIRE WHERE g_id=".$idGalaxie." AND id=".$systeme;
-      $resSysteme = $this->db->query($reqSysteme)->fetchAll(PDO::FETCH_ASSOC);
-      $nbr = $resSysteme[0]['id'];
-      //Si le système solaire n'existe pas on le créer et on insere la planete.
-      if(empty($nbr)){
-        /*   0 1 2 3 4 5 6 7 8 9 10 11 20 ssx
-        0   | | | | | | | | | | |  |  |  |
-        1   | | | | | | | | | | |  |  |  |
-        2   | | | | | | | | | | |  |  |  |
-        3   | | | | | | | | | | |  |  |  |
-        4   | | | | | | | | | | |  |  |  |
-        20  | | | | | | | | | | |  |  |  | id = 400
-        ssy
-        */
-        $ssy = round($systeme/20, 0, PHP_ROUND_HALF_DOWN);
-        $ssx = $systeme%20;
-        $insSysteme = "INSERT INTO SYSTEMES_SOLAIRE(g_id,pos_x,pos_y) VALUES(".$idGalaxie.",".$ssx.",".$ssy.")";
-        $this->db->query($insSysteme);
-        $positionPlanete = rand(1,12);
+      $ssx = rand(0,20);
+      $ssy = rand(0,20);
+      $reqNbrSys = "SELECT COUNT(*) as nbr FROM `SYSTEMES_SOLAIRE` WHERE `g_id`=".$idGalaxie." AND `pos_x`=".$ssx." AND `pos_y`=".$ssy;
+      $resNbr = $this->db->query($reqNbrSys)->fetchAll(PDO::FETCH_ASSOC);
+      if($resNbr[0]['nbr']==0){
+        $insSys = "INSERT INTO SYSTEMES_SOLAIRE(g_id,pos_x,pos_y) VALUES(".$idGalaxie.",".$ssx.",".$ssy.")"
+        $this->db->query($insSys);
+        $posPlanete = rand(1,10);
+        $selIdSys = "SELECT id FROM SYSTEMES_SOLAIRE WHERE `g_id`=".$idGalaxie." AND `pos_x`=".$ssx." AND `pos_y`=".$ssy;
+        $idSys = $this->db->query($selIdSys)->fetchAll(PDO::FETCH_ASSOC);
+        $reqInsert = "INSERT INTO PLANETES(j_id,s_id,position,nom,naquadah,neutronium,fer,trinium) VALUES(".$idJoueur.",".$idSys[0]["id"].",".$posPlanete.",'nouvelle planete',1000,1000,1000,1000)";
         $trouver = true;
       }else{
-        //Sinon on va parcourir la liste des planète existante et dès qu'on trouve une planète vide on insere la nouvelle
-        $numPlanete = array(1,2,3,4,5,6,7,8,9,10,11,12); //liste des positions possibles
-        $posPrise = array(); //le tableau des positions utilisées
-        $reqPlanete = "SELECT position FROM PLANETES WHERE s_id=".$systeme;
-        $resPlanete = $this->db->query($reqPlanete);
-        foreach ($resPlanete as $row) {
-          array_push($posPrise, $row['position']);
+        $selIdSys = "SELECT id FROM SYSTEMES_SOLAIRE WHERE `g_id`=".$idGalaxie." AND `pos_x`=".$ssx." AND `pos_y`=".$ssy;
+        $idSys = $this->db->query($selIdSys)->fetchAll(PDO::FETCH_ASSOC);
+        $reqPosPlanete = "SELECT position FROM PLANETES WHERE s_id=".$idSys[0]["id"];
+        $resPosPlanete = $this->db->query($reqPosPlanete)->fetchAll(PDO::FETCH_ASSOC);
+        $posPlanete = array();
+        for($i=0;$i<count($resPosPlanete);$i++){
+          array_push($posPlanete, $resPosPlanete[$i]['id']);
         }
-        $numPlanete = array_diff($numPlanete,$posPrise);
-        if(count($numPlanete) != 0){
-          $id = rand(0,(count($numPlanete)-1));
-          $positionPlanete = $numPlanete[$id];
+        $listePos = array(1,2,3,4,5,6,7,8,9,10);
+        $posDispo = array_diff($listePos,$posPlanete);
+        if(count($posDispo) != 0){
+          $id = rand(0,(count($posDispo)-1));
+          $positionPlanete = $posDispo[$id];
+          $reqInsert = "INSERT INTO PLANETES(j_id,s_id,position,nom,naquadah,neutronium,fer,trinium) VALUES(".$idJoueur.",".$idSys[0]["id"].",".$positionPlanete.",'nouvelle planete',1000,1000,1000,1000)";
           $trouver = true;
         }
       }
+
+      $this->db->query($reqInsert);
     }
-    $insPlanete = "INSERT INTO PLANETES(j_id,s_id,position,nom,naquadah,neutronium,fer,trinium) VALUES(".$idJoueur.",".$systeme.",".$positionPlanete.",'nouvelle planete',1000,1000,1000,1000)";
-    $this->db->query($insPlanete);
    }
 
    /**
