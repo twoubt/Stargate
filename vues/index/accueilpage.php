@@ -1,9 +1,6 @@
 <div class="site-content">
-  <div class="container">
     <div id="accueil1"><!-- Menu qui affiche des images du jeu (pas encore faisable) -->
     </div>
-  </div>
-  <div class="container">
   <div id="presentationGenerale"><!-- Info principale du jeu -->
     <div id="infos">
       <h2 class="text-center">Qu'est-ce que Stargate Project ?</h2>
@@ -12,12 +9,9 @@
        vous développez vos mines, créez vos vaisseaux de combat et partez conquérir d'autre planètes seul ou avec vos amis !</p>
     </div>
   </div>
-  </div>
-  <div class="container">
   <div id="presentation"><!-- Info essentielles du jeu à compléter -->
     <h2 class="text-center">Découvrez toutes les fonctionnalités de ce jeu innovant ;)</h2>
     <div class="presentationElement">
-      <div class="container">
       <div id="menuPresentation" class="panel-group">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -62,33 +56,25 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
     </div>
-  </div>
-  <div class="container"><!-- div inscription -->
-    <div>
+<!-- div inscription -->
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
       <a href="#inscription" data-toggle="collapse">Inscription<a>
-    </div>
-    <div id="inscription">
-
-      <form class="navbar-form" id="formLogin" method="post">
-        <div class="form-group">
-          <input class="form-control" name="username" id="username" placeholder="Identifiant" type="text">
-        </div>
-        <div class="form-group">
-          <input class="form-control" name="password" id="password" placeholder="Mot de passe" type="password">
-        </div>
-        <div class="form-group">
-          <input class="form-control" name="email" id="email" placeholder="e-mail" type="text">
-        </div>
-        <select>
-          <?php for($i = 0; $i < count($donnees['galaxies']); $i++) {
-            echo "<option value='".($i+1)."'>".$donnees['galaxies'][$i]."</option>";
-          } ?>
-        </select>
-        <button type="button" id="btnLogin" class="btn">Inscription</button>
-      </form>
+      <div id="inscription">
+        <form id="formLogin" method="post">
+            <input class="form-control" name="username" id="username" placeholder="Identifiant" type="text">
+            <input class="form-control" name="password" id="password" placeholder="Mot de passe" type="password">
+            <input class="form-control" name="email" id="email" placeholder="e-mail" type="text">
+            <select class="form-control">
+              <?php for($i = 0; $i < count($donnees['galaxies']); $i++) {
+                echo "<option value='".($i+1)."'>".$donnees['galaxies'][$i]."</option>";
+              } ?>
+            </select>
+            <button type="button" id="btnLogin" class="btn">Inscription</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

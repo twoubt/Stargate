@@ -31,7 +31,7 @@ class Index_Controlleur extends Controlleur{
     $garray = $g->getGalaxies();
     $menu->assign('galaxies', $garray, false);
 
-    $this->vue->assign('menu', $menu->render('index'.DS.'accueilPage', false));
+    $this->vue->assign('accueil', $menu->render('index'.DS.'accueilPage', false));
 
     $footer = new Vue();
     $this->vue->assign('footer', $footer->render('index'.DS.'footer', false));

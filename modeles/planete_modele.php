@@ -78,6 +78,17 @@ class Planete_Modele extends Modele{
    }
 
    /**
+    * Retourne toutes les id des planète d'un joueur (forme [x]["id"])
+    * @param int $idJoueur l'id du joueur pour lequel on veut les id des planètes
+    * @return array liste des id des planètes
+    */
+   public function getIdPlanetes($idJoueur){
+     $req = "SELECT id FROM PLANETE WHERE j_id=".$idJoueur;
+     $res = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC);
+     return $res;
+   }
+
+   /**
     * Charge la planète et retourne les données
     * @param int $idPlanete l'id de la planète
     * @return Planete objet avec les données de la planète demandées

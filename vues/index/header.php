@@ -1,5 +1,4 @@
-<header>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header"><!-- Logo du jeu + menu hamburger -->
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -40,4 +39,3 @@
       </div>
     </div>
   </nav>
-</header>

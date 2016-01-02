@@ -11,8 +11,10 @@
 
   <body>
     <?= $donnees['header'] ?>
-    <?= $donnees['menu'] ?>
+    <div class="container">
+    <?= $donnees['accueil'] ?>
     <?= $donnees['footer'] ?>
     <?= $donnees['script_js'] ?>
+    </div>
   </body>
 </html>
