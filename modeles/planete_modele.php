@@ -140,50 +140,59 @@ class Planete_Modele extends Modele{
      //Formule : AB = racine( (xB-xA)² + (yB -yA)² )
    }
 
+   /**
+    * Calcul les ressources de toutes les planètes d'un joeur
+    * @param int $idJoueur l'id du joueur pour lequel on veut calculer les ressources
+    */
    public function calculRessourcesPlanetes($idJoueur){
-     $niveauFer = array();
-     $niveauTrinium = array();
-     $niveauNaquadah = array();
-     $niveauNeutronium = array();
-     $idPlanetes = array();
-     $req = "SELECT lastconnexion FROM JOUEUR WHERE id=".$idJoueur;
-     $res = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC);
+     $tabBatiments = array(); //tableau qui va prendre le niveau des batiments des planètes
+     $idPlanete = $this->getIdPlanetes($idJoueur); //on récupère la liste des id des planètes que le joueur possède
+     $reqDateCon = "SELECT dateconnexion FROM CONNECTER WHERE j_id=".$idJoueur;
+     $resDateCon = $this->db->query($reqDerCon)->fetchAll(PDO::FETCH_ASSOC);
      $now = new DateTime();
-     $lastconnexion = new DateTime($res[0]["lastconnexion"]);
-     $connexion = $now->diff($lastconnexion);
-     $connexion = $connexion->format('%h'); //Nombre d'heure entre les deux connexion
-     $reqIdPlanete = "SELECT id FROM PLANETES WHERE j_id=".$idJoueur;
-     $resIdPlanete = $this->db->query($reqIdPlanete);
-     foreach($resIdPlanete as $row){
-       $reqFer = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=1";
-       $reqTrinium = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=2";
-       $reqNaquadah = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=3";
-       $reqNeutronium = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=4";
-       /*$reqForFer = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=12";
-       $reqForTri = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=13";
-       $reqForExpl = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=14";
-       $reqForNeu = "SELECT niveau FROM CONSTRUIT WHERE p_id=".$row["id"]." AND b_id=15";*/
-       array_push($idPlanetes,$row["id"]);
-
-       foreach($this->db->query($reqFer) as $row){
-         array_push($niveauFer,$row["niveau"]);
-       }
-       foreach($this->db->query($reqTrinium) as $row){
-         array_push($niveauTrinium,$row["niveau"]);
-       }
-       foreach($this->db->query($reqNaquadah) as $row){
-         array_push($niveauNaquadah,$row["niveau"]);
-       }
-       foreach($this->db->query($reqNeutronium) as $row){
-         array_push($niveauNeutronium,$row["niveau"]);
-       }
+     //on test si le joueur est connecter
+     if(count($resDerCon)==0){
+       //s'il est pas connecté on prend la derniere connexion
+       $reqDernConn = "SELECT lastconnexion FROM JOUEUR WHERE id=".$idJoueur;
+       $resDernConn = $this->db->query($reqDernConn)->fetchAll(PDO::FETCH_ASSOC);
+       $lastConn = new DateTime($resDernConn[0]["lastconnexion"]);
+       //On met à jour sa derniere connexion pour ne pas recalculer les ressources
+       $reqUpdConn = "UPDATE JOUEUR SET lastconnexion='".$now->format('Y-m-d H:i:s')."'";
+       $this->db->query($reqUpdConn);
+     }else{
+       //Si il est connecté on prend la date de derniere connexion
+       $lastConn = new DateTime($resDateCon[0]["dateconnexion"]);
+       //On met à jour sa date de connection
+       $reqUpdConn = "UPDATE CONNECTER SET dateconnexion='".$now->format('Y-m-d H:i:s')."'";
+       $this->db->query($reqUpdConn);
      }
-     for($i=0;$i<count($niveauFer);$i++){
-       $ressourcesNaquadah = $niveauNaquadah[$i]; //calcul des ressources en plus
-       $ressourcesNeutronium = $niveauNeutronium[$i];
-       $ressourcesFer = $niveauFer[$i];
-       $ressourcesTrinium = $niveauTrinium[$i];
-       $reqMAJRessource = "UPDATE PLANETES SET `naquadah`=`naquadah`+".$ressourcesNaquadah.",`neutronium`=`neutronium`+".$ressourcesNeutronium.", `fer`=`fer`+".$ressourcesFer.", `trinium`=`trinium`+".$ressourcesTrinium." WHERE id=".$idPlanetes[$i];
+     //le temps entre le moment present et la derniere connexion
+     $secondePassee = $now->getTimestamp() - $lastConn->getTimestamp();
+     //On récupère les niveaux des batiments de ressources pour chaque planètes et on fait le calcul des ressources par secondes
+     for($i=0;$i<count($idPlanete);$i++){
+       $reqNiveau = "SELECT niveau FROM CONSTRUIT WHERE `p_id`=".$idPlanete[$i]["id"]." AND `b_id`=1 OR `b_id`=2 OR `b_id`=3 OR `b_id`=4 OR `b_id`=12 OR `b_id`=13 OR `b_id`=14 OR `b_id`=15";
+       $res = $this->db->query($reqNiveau)->fetchAll(PDO::FETCH_ASSOC);
+       //On remplis le tableau avec les informations concernant l'id de la planete et les ressources en plus
+       $tabBatiments[$i]["id_planete"] = $idPlanete[$i]["id"];
+       $resMineFer = (((40 * $res[0]["niveau"] * pow(1.1,$res[0]["niveau"]))/3600)*$secondePassee);
+       $tabBatiments[$i]["mine_fer"] = round($resMineFer,2,PHP_ROUND_HALF_DOWN);
+       $resMineTrinium = (((30 * $res[1]["niveau"] * pow(1.1,$res[1]["niveau"]))/3600)*$secondePassee);
+       $tabBatiments[$i]["mine_trinium"] = round($resMineTrinium,2,PHP_ROUND_HALF_DOWN);
+       $resMineNaq = (((20 * $res[2]["niveau"] * pow(1.1,$res[2]["niveau"]))/3600)*$secondePassee);
+       $tabBatiments[$i]["mine_naq"] = round($resMineNaq,2,PHP_ROUND_HALF_DOWN);
+       $resMineNeut = (((10 * $res[3]["niveau"] * pow(1.1,$res[3]["niveau"]))/3600)*$secondePassee);
+       $tabBatiments[$i]["mine_neut"] = round($resMineNeut,2,PHP_ROUND_HALF_DOWN);
+       /*
+       $tabBatiments[$i]["for_fer"] = $res[4]["niveau"];
+       $tabBatiments[$i]["for_tri"] = $res[5]["niveau"];
+       $tabBatiments[$i]["exp_unas"] = $res[6]["niveau"];
+       $tabBatiments[$i]["for_neut"] = $res[7]["niveau"];*/
+     }
+
+     //On va parcourir la liste des niveau des batiments
+     for($i=0;$i<count($tabBatiments);$i++){
+       $reqUpdate = "UPDATE `PLANETES` SET `naquadah`=`naquadah`+".$tabBatiments[$i]['mine_naq']." ,`neutronium`=`neutronium`+".$tabBatiments[$i]["mine_neut"]." ,`fer`=`fer`+".$tabBatiments[$i]["mine_fer"].", `trinium`=`trinium`+".$tabBatiments[$i]["mine_trinium"]." WHERE id=".$tabBatiments[$i]["id_planete"];
+       $this->db->query($reqUpdate);
      }
    }
 }

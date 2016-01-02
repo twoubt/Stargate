@@ -61,9 +61,9 @@ class Batiment{
   public function getCoutConstruction(){
     $cout = array();
     $cout['fer'] = 1000 * pow(2,$this->getNiveau()-1);
-    $cout['naquadah'] = 1000 * pow(2,$this->getNiveau()-1);
-    $cout['neutronium'] = 1000 * pow(2,$this->getNiveau()-1);
-    $cout['trinium'] = 1000 * pow(2,$this->getNiveau()-1);
+    $cout['naquadah'] = 800 * pow(2,$this->getNiveau()-1);
+    $cout['neutronium'] = 700 * pow(2,$this->getNiveau()-1);
+    $cout['trinium'] = 900 * pow(2,$this->getNiveau()-1);
     return $cout;
   }
 
