@@ -5,3 +5,12 @@ body{
 .error{
   color: red;
 }
+
+.img-center{
+  display: block;
+  margin: 5px auto;
+}
+
+.m-bottom-15{
+  margin-bottom: 15px;
+}
