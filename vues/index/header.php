@@ -29,6 +29,7 @@
                   </div>
                   <div class="form-group">
                     <label><input type="checkbox"> Se souvenir de moi</label>
+                    <span class="error" id="err-connexion"></span>
                   </div>
                   <button type="button" id="btnLogin" class="btn">Connexion</button>
                 </form>
