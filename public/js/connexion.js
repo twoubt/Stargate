@@ -22,11 +22,14 @@ $(document).ready(function(){
             success:function(resultat){
               if(resultat){
                 //On redirige vers la page de jeu
+                window.location.replace("");
+              }else{
+                $('#err-connexion').text("Mauvaise combinaison pseudo/mot de passe");
               }
             }
           });
         }else{
-          $('#err-connexion').text("Mauvaise combinaison pseudo/mot de passe")
+          $('#err-connexion').text("Mauvaise combinaison pseudo/mot de passe");
         }
     });
 });
