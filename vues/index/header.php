@@ -30,7 +30,7 @@
                     <label><input type="checkbox" id="souvenir"> Se souvenir de moi</label>
                     <span class="error" id="err-connexion"></span>
                   </div>
-                  <button type="button" id="btnLogin" class="btn">Connexion</button>
+                  <button id="btnLogin" class="btn">Connexion</button>
                 </form>
               </div>
             </li>
