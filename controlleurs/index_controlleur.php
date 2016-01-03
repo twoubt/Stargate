@@ -17,7 +17,7 @@ class Index_Controlleur extends Controlleur{
 		$this->vue->setCSS($css);
 		$this->vue->setBootstrap();
 
-		$scriptJS = array('jquery.js','bootstrap.js');
+		$scriptJS = array('jquery.js','bootstrap.js','connexion.js');
 		$this->vue->setJs($scriptJS);
 		/*exemple d'insertion d'une partie
 		$footer = new Vue();

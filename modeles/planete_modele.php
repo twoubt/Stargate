@@ -100,6 +100,16 @@ class Planete_Modele extends Modele{
      }
    }
 
+   public function loadAllPlanetes($idJoueur){
+     $reqPlanete = "SELECT * FROM PLANETES WHERE j_id=".$idJoueur;
+     $res = $this->db->query($reqPlanete)->fetchAll(PDO::FETCH_ASSOC);
+     $lesPlanetes = array();
+     for($i=0;$i<count($res);$i++){
+       array_push($lesPlanetes, new Planete($idPlanete,$res[0]["position"],$res[0]["nom"],$res[0]["naquadah"],$res[0]["neutronium"],$res[0]["fer"],$res[0]["trinium"]));
+     }
+     return $lesPlanetes;
+   }
+
    /**
     * Calcul la distance entre deux planètes
     * @param int $idPlaneteA l'id de la planète de départ

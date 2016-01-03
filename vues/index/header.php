@@ -18,7 +18,7 @@
             <li><a href="#inscription">Inscription</a></li>
             <li class="dropdown" id="menuLogin">
               <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Connexion</a>
-              <div class="dropdown-menu" style="padding:17px;"><!-- Menu de connexion qui apparaît quand on clique sur connexion -->
+              <div class="dropdown-menu p-17"><!-- Menu de connexion qui apparaît quand on clique sur connexion -->
                 <form class="navbar-form" id="formLogin" method="post">
                   <div class="form-group">
                     <input class="form-control" name="username" id="username" placeholder="Identifiant" type="text">
@@ -27,7 +27,7 @@
                     <input class="form-control" name="password" id="password" placeholder="Mot de passe" type="password">
                   </div>
                   <div class="form-group">
-                    <label><input type="checkbox"> Se souvenir de moi</label>
+                    <label><input type="checkbox" id="souvenir"> Se souvenir de moi</label>
                     <span class="error" id="err-connexion"></span>
                   </div>
                   <button type="button" id="btnLogin" class="btn">Connexion</button>
